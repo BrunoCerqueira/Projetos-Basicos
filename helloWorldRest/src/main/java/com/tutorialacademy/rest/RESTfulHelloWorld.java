@@ -46,7 +46,9 @@ public class RESTfulHelloWorld {
 	@Path("/cadastrar")
 	
 	public String Cadastrar(Pessoa pessoa){
- 
+
+        
+              
 		PessoaEntity entity = new PessoaEntity();
  
 		try {
