@@ -1,0 +1,16 @@
+CREATE DATABASE `db_estudo` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE TABLE `tb_endereco` (
+  `id_endereco` int(11) NOT NULL,
+  `id_pessoa` int(11) NOT NULL,
+  `descricao` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_endereco`),
+  KEY `fk_db_endereco_pessoa_idx` (`id_pessoa`),
+  CONSTRAINT `fk_db_endereco_1` FOREIGN KEY (`id_pessoa`) REFERENCES `tb_pessoa` (`codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `tb_pessoa` (
+  `codigo` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) NOT NULL,
+  `sexo` char(1) NOT NULL,
+  PRIMARY KEY (`codigo`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
