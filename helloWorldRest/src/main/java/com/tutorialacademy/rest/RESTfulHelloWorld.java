@@ -1,6 +1,8 @@
 package com.tutorialacademy.rest;
 
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,6 +15,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -66,7 +69,43 @@ public class RESTfulHelloWorld {
 		}
  
 	}
+	/**
+	 * @Consumes - determina o formato dos dados que vamos postar
+	 * @Produces - determina o formato dos dados que vamos retornar
+	 * 
+	 * Esse método cadastra uma nova pessoa
+	 * */
+	@POST	
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/cadastrarAtualizado")
 	
+	public Response CadastrarAtualizado(Pessoa pessoa){
+
+        
+              
+		PessoaEntity entity = new PessoaEntity();
+ 
+		try {
+ 
+			entity.setNome(pessoa.getNome());
+			entity.setSexo(pessoa.getSexo());
+ 
+			PessoaEntity pessoaSalva = repository.Salvar(entity);
+			return Response.ok(pessoaSalva).build();
+ 
+		} catch (Exception e) {
+ 
+			try {
+				return Response.temporaryRedirect(new URI("http://www.google.com")).build();
+			} catch (URISyntaxException e1) {
+				e1.printStackTrace();
+			}
+		}
+		return null;
+ 
+	}
+
 
 	/**
 	 * Essse método altera uma pessoa já cadastrada
@@ -114,6 +153,28 @@ public class RESTfulHelloWorld {
 		}
  
 		return pessoas;
+	}
+	/**
+	 * Esse método lista todas pessoas cadastradas na base
+	 * */
+	@GET
+	@Produces("application/json; charset=UTF-8")
+	@Path("/todasPessoasAtualizado")
+	public Response TodasPessoasAtualizado(){
+ 
+		List<Pessoa> pessoas =  new ArrayList<Pessoa>();
+ 
+		List<PessoaEntity> listaEntityPessoas = repository.TodasPessoas();
+ 
+		for (PessoaEntity entity : listaEntityPessoas) {
+ 
+			pessoas.add(new Pessoa(entity.getCodigo(), entity.getNome(),entity.getSexo()));
+		}
+		GenericEntity<List<Pessoa>> bookWrapper = new GenericEntity<List<Pessoa>>(
+				pessoas) {
+		};
+		return Response.ok(bookWrapper).build();
+ 
 	}
  
 	/**

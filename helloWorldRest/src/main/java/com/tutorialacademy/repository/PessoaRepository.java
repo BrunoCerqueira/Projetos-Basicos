@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import com.tutorialacademy.http.Pessoa;
 import com.tutorialacademy.repository.entity.PessoaEntity;
  
  
@@ -28,11 +29,12 @@ public class PessoaRepository {
 	/**
 	 * CRIA UM NOVO REGISTRO NO BANCO DE DADOS
 	 * */
-	public void Salvar(PessoaEntity pessoaEntity){
+	public PessoaEntity Salvar(PessoaEntity pessoaEntity){
  
 		this.entityManager.getTransaction().begin();
 		this.entityManager.persist(pessoaEntity);
 		this.entityManager.getTransaction().commit();
+		return pessoaEntity;
 	}
  
 	/**
