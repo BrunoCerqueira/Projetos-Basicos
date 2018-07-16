@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.tutorialacademy.http.Pessoa;
 import com.tutorialacademy.repository.entity.PessoaEntity;
  
  
@@ -21,7 +20,7 @@ public class PessoaRepository {
 	public PessoaRepository(){
  
 		/*CRIANDO O NOSSO EntityManagerFactory COM AS PORPRIEDADOS DO ARQUIVO persistence.xml */
-		this.entityManagerFactory = Persistence.createEntityManagerFactory("persistence_unit_db_estudo");
+		this.entityManagerFactory = Persistence.createEntityManagerFactory("testeRestPU");
  
 		this.entityManager = this.entityManagerFactory.createEntityManager();
 	}

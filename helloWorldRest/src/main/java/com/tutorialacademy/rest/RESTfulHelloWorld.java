@@ -23,7 +23,7 @@ import com.tutorialacademy.http.Pessoa;
 import com.tutorialacademy.repository.PessoaRepository;
 import com.tutorialacademy.repository.entity.PessoaEntity;
  
-@Path("/") 
+//@Path("/") 
 public class RESTfulHelloWorld {
 	
 	private final  PessoaRepository repository = new PessoaRepository();

@@ -1,4 +1,4 @@
-com/tutorialacademy/rest/RESTfulHelloWorld.class
-com/tutorialacademy/repository/PessoaRepository.class
 com/tutorialacademy/http/Pessoa.class
 com/tutorialacademy/repository/entity/PessoaEntity.class
+com/tutorialacademy/rest/RESTfulHelloWorld.class
+com/tutorialacademy/repository/PessoaRepository.class
