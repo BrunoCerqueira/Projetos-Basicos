@@ -22,7 +22,7 @@ import com.distribuidorabebidas.http.Secao;
 import com.distribuidorabebidas.mock.GeracaoDadosMock;
 import com.distribuidorabebidas.repository.BebidaRepository;
 import com.distribuidorabebidas.repository.EstoqueRepositoty;
-import com.distribuidorabebidas.repository.SecaoRepositoty;
+import com.distribuidorabebidas.repository.SecaoRepository;
 import com.distribuidorabebidas.repository.entity.BebidaAlcoolicaEntity;
 import com.distribuidorabebidas.repository.entity.BebidaEntity;
 import com.distribuidorabebidas.repository.entity.BebidaNaoAlcoolicaEntity;
@@ -36,12 +36,12 @@ import jersey.repackaged.com.google.common.collect.Lists;
 @Path("/") 
 public class DistribuidoraRest {
 	public DistribuidoraRest() {
-//		secaoRepositoty.salvarSecoes(GeracaoDadosMock.secoes);
-//		 bebidaRepository.salvarBebidas(GeracaoDadosMock.bebidas);
+//		secaoRepository.salvarSecoes(GeracaoDadosMock.secoes);
+//		bebidaRepository.salvarBebidas(GeracaoDadosMock.bebidas);
 	}
 	private final BebidaRepository bebidaRepository = new BebidaRepository();
 	private final EstoqueRepositoty estoqueRepository = new EstoqueRepositoty();
-	private final SecaoRepositoty secaoRepositoty = new SecaoRepositoty();
+	private final SecaoRepository secaoRepositoty = new SecaoRepository();
  
 	/**
 	 * Esse método lista todas pessoas cadastradas na base

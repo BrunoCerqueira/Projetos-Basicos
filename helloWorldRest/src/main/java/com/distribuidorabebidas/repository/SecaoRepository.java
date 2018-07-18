@@ -16,13 +16,13 @@ import com.distribuidorabebidas.repository.entity.enumerator.TipoBebida;
  
  
  
-public class SecaoRepositoty {
+public class SecaoRepository {
  
 	private final EntityManagerFactory entityManagerFactory;
  
 	private final EntityManager entityManager;
  
-	public SecaoRepositoty(){
+	public SecaoRepository(){
  
 		/*CRIANDO O NOSSO EntityManagerFactory COM AS PORPRIEDADOS DO ARQUIVO persistence.xml */
 		this.entityManagerFactory = Persistence.createEntityManagerFactory("testeRestPU");

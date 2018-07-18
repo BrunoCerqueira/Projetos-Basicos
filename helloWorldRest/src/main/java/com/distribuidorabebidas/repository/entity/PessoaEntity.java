@@ -21,11 +21,13 @@ public class PessoaEntity {
  
 	@Column(name="sexo")
 	private String  sexo;
- public PessoaEntity() {
-}
- public PessoaEntity(Integer codigo) {
-	 this.codigo = codigo;
- }
+	
+	public PessoaEntity() {
+	}
+    
+	public PessoaEntity(Integer codigo) {
+	  this.codigo = codigo;
+	}
 	public Integer getCodigo() {
 		return codigo;
 	}
